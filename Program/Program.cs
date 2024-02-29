@@ -30,17 +30,28 @@ namespace Program
         
         private static int[] SecondTask(int[] numbers, int k, IsMultiple isMultiple)
         {
-            List<int> newArray = new List<int>();
+            int count = 0;
+            
+            foreach (int number in numbers)
+            {
+                if (isMultiple(number, k))
+                {
+                    count++;
+                }
+            }
+
+            int[] newArray = new int[count];
+            int num = 0;
 
             foreach (int number in numbers)
             {
                 if (isMultiple(number, k))
                 {
-                    newArray.Add(number);
+                    newArray[num++] = number;
                 }
             }
 
-            return newArray.ToArray();
+            return newArray;
         }
     }
 }
